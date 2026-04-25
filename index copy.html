@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Votre Nom</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="Ressources/styles/main.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary:   '#05094A',
+            secondary: '#07F01B',
+            neutral:   '#EFEFEF',
+          },
+          fontFamily: {
+            display: ['Arial', 'Helvetica', 'sans-serif'],
+            body:    ['Arial', 'Helvetica', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+
+<!-- ── Custom Cursor ── -->
+<div class="custom-cursor" id="cursor"></div>
+
+<!-- ════════════════ NAVBAR ════════════════ -->
+<nav id="navbar" class="py-5 px-8 flex items-center justify-between">
+  <!-- Logo -->
+  <a href="#accueil" class="flex items-center gap-3 group">
+    <div class="logo-mark"><img src="Ressources/images/logoc.png" height="200px" alt="Mon logo"></div>
+    <span style="font-family:Arial,Helvetica,sans-serif; font-weight:700; color:white; font-size:0.95rem; letter-spacing:0.04em;">
+      Christ <span style="color:var(--secondary);">NGUEMA</span>
+    </span>
+  </a>
+
+  <!-- Desktop menu -->
+  <div class="hidden md:flex items-center gap-8">
+    <a href="#accueil"  class="nav-link active">Accueil</a>
+    <a href="#apropos"  class="nav-link">À Propos</a>
+    <a href="#projets"  class="nav-link">Projets</a>
+    <a href="#interets" class="nav-link">Intérêts</a>
+    <a href="#contact"  class="nav-link">Contact</a>
+    <a href="#contact"  class="btn-primary" style="padding:10px 22px; font-size:0.78rem;">Embauchez-moi</a>
+  </div>
+
+  <!-- Hamburger -->
+  <button class="hamburger md:hidden" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#accueil"  class="nav-link" onclick="closeMenu()">Accueil</a>
+  <a href="#apropos"  class="nav-link" onclick="closeMenu()">À Propos</a>
+  <a href="#projets"  class="nav-link" onclick="closeMenu()">Projets</a>
+  <a href="#interets" class="nav-link" onclick="closeMenu()">Intérêts</a>
+  <a href="#contact"  class="nav-link" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- ════════════════ HERO ════════════════ -->
+<section id="accueil">
+  <div class="hero-circle"></div>
+  <div class="hero-circle-2"></div>
+
+  <!-- Photo frame -->
+  <div class="hero-photo-frame hidden lg:block">
+    <div class="photo-bg">
+      <div class="photo-initials">
+        <img src="Ressources/images/Larry.jpg" alt="Moi">
+      </div>
+    </div>
+    <div class="hero-tag">Disponible</div>
+  </div>
+
+  <div class="container mx-auto px-8 relative z-10 pt-24">
+    <div class="max-w-2xl">
+      <div class="section-label" style="color:rgba(7,240,27,0.7);">
+        <span style="background:rgba(7,240,27,0.7);"></span>
+        Bonjour, je suis
+      </div>
+
+      <h1 class="hero-title mb-4">
+        <div class="hero-word" style="animation-delay:0.1s">
+          <span style="animation-delay:0.1s">Christ</span>
+        </div>
+        <br>
+        <div class="hero-word">
+          <span style="animation-delay:0.25s"><span class="accent">NGUEMA. N</span></span>
+        </div>
+      </h1>
+
+      <p class="hero-role" style="animation-delay:0.4s">
+        <span id="typewriter-output" class="typewriter-text"></span><span class="typewriter-cursor" id="typewriter-cursor"></span>
+      </p>
+
+      <p style="color:rgba(239,239,239,0.55); font-size:0.95rem; line-height:1.75; max-width:500px; margin-bottom:2.5rem; animation:fadeIn 1s 0.5s both;">
+        Je conçois et développe des systèmes embarqués performants, au croisement du hardware et du software.
+      </p>
+
+      <div class="flex flex-wrap gap-4" style="animation:fadeIn 1s 0.6s both;">
+        <a href="#projets" class="btn-primary">
+          Voir mes projets <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="#contact" class="btn-outline">
+          Me contacter
+        </a>
+      </div>
+
+      <!-- Stats -->
+      <!-- <div class="flex gap-8 mt-14" style="animation:fadeIn 1s 0.7s both;">
+        <div>
+          <div style="font-family:Arial,Helvetica,sans-serif; font-size:2rem; font-weight:800; color:var(--secondary);">3+</div>
+          <div style="font-size:0.75rem; color:rgba(239,239,239,0.4); letter-spacing:0.05em;">Années d'exp.</div>
+        </div>
+        <div style="width:1px; background:rgba(239,239,239,0.1);"></div>
+        <div>
+          <div style="font-family:Arial,Helvetica,sans-serif; font-size:2rem; font-weight:800; color:var(--secondary);">20+</div>
+          <div style="font-size:0.75rem; color:rgba(239,239,239,0.4); letter-spacing:0.05em;">Projets livrés</div>
+        </div>
+        <div style="width:1px; background:rgba(239,239,239,0.1);"></div>
+        <div>
+          <div style="font-family:Arial,Helvetica,sans-serif; font-size:2rem; font-weight:800; color:var(--secondary);">15+</div>
+          <div style="font-size:0.75rem; color:rgba(239,239,239,0.4); letter-spacing:0.05em;">Clients satisfaits</div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ════════════════ À PROPOS ════════════════ -->
+<section id="apropos" class="py-28 px-8">
+  <div class="container mx-auto max-w-6xl">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+      <!-- Left: Photo -->
+      <div class="fade-up relative">
+        <div class="about-photo">
+          <div class="about-photo-initials">
+            <img src="Ressources/images/moi_mod.png" alt="Une autre umage de moi">
+          </div>
+          <div class="about-photo-corner"></div>
+        </div>
+        <!-- Stats overlay -->
+        <!-- <div class="grid grid-cols-2 gap-3 mt-3">
+          <div class="stat-card">
+            <div class="stat-number">3+</div>
+            <div class="stat-label">Années d'expérience</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">20+</div>
+            <div class="stat-label">Projets réalisés</div>
+          </div>
+        </div> -->
+      </div>
+
+      <!-- Right: Text -->
+      <div class="fade-up" style="transition-delay:0.15s">
+        <div class="section-label">À Propos de moi</div>
+        <h2 class="section-title mb-6">
+          Passionné par le <span style="color:var(--secondary)">code</span><br>& les systèmes complexes
+        </h2>
+          <p class="mb-4 opacity-70">
+          Étudiant en ingénierie spécialisé en électronique et systèmes embarqués, je développe des solutions à la croisée du hardware et du software.
+        </p>
+
+        <p class="opacity-70" style="color:rgba(5,9,74,0.65); line-height:1.85; margin-bottom:2.5rem; font-size:0.95rem;">
+          Je travaille sur des projets allant des microcontrôleurs (PIC, STM32, FPGA) aux applications modernes en Python, C# et web.
+        </p>
+
+        <!-- Skills -->
+        <div class="mb-6">
+          <div class="section-label" style="margin-bottom:1.25rem;">Compétences techniques</div>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between mb-1">
+                <span style="font-family:Arial,Helvetica,sans-serif; font-size:0.8rem; font-weight:600;">C/C++ embarqué</span>
+                <span style="font-size:0.78rem; color:var(--secondary); font-weight:600;">95%</span>
+              </div>
+              <div class="progress-bar"><div class="progress-fill" data-width="95"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span style="font-family:Arial,Helvetica,sans-serif; font-size:0.8rem; font-weight:600;">Développement d'applications Qt C++ et PySide6 python</span>
+                <span style="font-size:0.78rem; color:var(--secondary); font-weight:600;">88%</span>
+              </div>
+              <div class="progress-bar"><div class="progress-fill" data-width="88"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span style="font-family:Arial,Helvetica,sans-serif; font-size:0.8rem; font-weight:600;">CAO PCB avec KiCad</span>
+                <span style="font-size:0.78rem; color:var(--secondary); font-weight:600;">80%</span>
+              </div>
+              <div class="progress-bar"><div class="progress-fill" data-width="80"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span style="font-family:Arial,Helvetica,sans-serif; font-size:0.8rem; font-weight:600;">UI/UX Design (Figma)</span>
+                <span style="font-size:0.78rem; color:var(--secondary); font-weight:600;">75%</span>
+              </div>
+              <div class="progress-bar"><div class="progress-fill" data-width="75"></div></div>
+            </div>
+             <div>
+              <div class="flex justify-between mb-1">
+                <span style="font-family:Arial,Helvetica,sans-serif; font-size:0.8rem; font-weight:600;">Développement web</span>
+                <span style="font-size:0.78rem; color:var(--secondary); font-weight:600;">75%</span>
+              </div>
+              <div class="progress-bar"><div class="progress-fill" data-width="75"></div></div>
+            </div>
+             <div>
+              <div class="flex justify-between mb-1">
+                <span style="font-family:Arial,Helvetica,sans-serif; font-size:0.8rem; font-weight:600;">Conception microélectronique et Layout avec Cadence Virtuoso</span>
+                <span style="font-size:0.78rem; color:var(--secondary); font-weight:600;">75%</span>
+              </div>
+              <div class="progress-bar"><div class="progress-fill" data-width="75"></div></div>
+            </div>
+             <div>
+              <div class="flex justify-between mb-1">
+                <span style="font-family:Arial,Helvetica,sans-serif; font-size:0.8rem; font-weight:600;">Développement mobile cross-platform avec .NET MAUI</span>
+                <span style="font-size:0.78rem; color:var(--secondary); font-weight:600;">75%</span>
+              </div>
+              <div class="progress-bar"><div class="progress-fill" data-width="75"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Badges -->
+        <div class="flex flex-wrap gap-2 mb-8">
+          <span class="skill-pill">FreeRTOS</span>
+          <span class="skill-pill">VHDL</span>
+          <span class="skill-pill">python</span>
+          <span class="skill-pill">C#</span>
+          <span class="skill-pill">JavaScript</span>
+          <span class="skill-pill">ADS</span>
+          <span class="skill-pill">CEM</span>
+          <span class="skill-pill">Git</span>
+        </div>
+
+        <a href="Ressources/others/NGUEMA_NTOSSUI_CV_ALTERNANCE_SEA.pdf" target="_blank" class="btn-primary" style="background:var(--primary); color:var(--secondary);">
+          Télécharger mon CV <i class="fa-solid fa-download"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ PROJETS ════════════════ -->
+<section id="projets" class="py-28 px-8">
+  <div class="container mx-auto max-w-6xl">
+    <div class="text-center mb-16 fade-up">
+      <div class="section-label justify-center" style="color:rgba(7,240,27,0.7);">
+        <span style="background:rgba(7,240,27,0.7);"></span>
+        Mes Réalisations
+      </div>
+      <h2 class="section-title" style="color:var(--neutral);">Projets <span style="color:var(--secondary)">sélectionnés</span></h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Project 1 -->
+      <div class="project-card fade-up">
+        <div class="project-img" style="font-size:2.5rem;">
+          <img src="Ressources/images/robot_ecrivain.png" alt="Robot écrivain">
+        </div>
+        <div class="project-overlay"></div>
+        <div class="project-body">
+          <div class="project-tag">Systèmes embarqués temps réel</div>
+          <div class="project-name">Robot écrivain</div>
+          <p class="project-desc">Programmation d'un robot à 3 axes qui écrit les caractères reçus par liaison série.</p>
+        </div>
+        <div class="project-footer">
+          <div class="flex gap-2">
+            <span class="tech-chip">FreeRTOS</span>
+            <span class="tech-chip">STM32</span>
+            <span class="tech-chip">C embarqué</span>
+            <span class="tech-chip">CMSIS OS</span>
+            <span class="tech-chip">STM32CubeIDE</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card fade-up" style="transition-delay:0.1s">
+        <div class="project-img">
+          <img src="Ressources/images/line_tracker.png" alt="">
+        </div>
+        <div class="project-overlay"></div>
+        <div class="project-body">
+          <div class="project-tag">électronique et systèmes embarqués</div>
+          <div class="project-name">Robot suiveur de ligne</div>
+          <p class="project-desc">Conception et programmation d'un robot capable de suivre une ligne noire sur un font blanc, et d'effectuer des actions annexes comme lancer une balle.</p>
+        </div>
+        <div class="project-footer">
+          <div class="flex gap-2">
+            <span class="tech-chip">Microcontrôleur PIC16F887</span>
+            <span class="tech-chip">CAO de PCB avec KiCad</span>
+            <span class="tech-chip">Interruption, PWM, GPIO</span>
+            <span class="tech-chip">MPLABX IDE</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card fade-up" style="transition-delay:0.2s">
+        <div class="project-img">
+          <img src="Ressources/images/festo2.png" alt="">
+        </div>
+        <div class="project-overlay"></div>
+        <div class="project-body">
+          <div class="project-tag">Automatisme industrielle</div>
+          <div class="project-name">Ligne automatisée Festo2.</div>
+          <p class="project-desc">Programmation d'une ligne automatisée permettant de percer des pièces et de les triées selon leurs couleurs.</p>
+        </div>
+        <div class="project-footer">
+          <div class="flex gap-2">
+            <span class="tech-chip">GEMMA</span>
+            <span class="tech-chip">Grafcet (SFC)</span>
+            <span class="tech-chip">Ladder</span>
+            <span class="tech-chip">IHM</span>
+            <span class="tech-chip">Unity Pro</span>
+            <span class="tech-chip">Programmation d'automate</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-card fade-up" style="transition-delay:0.1s">
+        <div class="project-img">
+          <img src="Ressources/images/electrical_cabinet.png" alt="">
+        </div>
+        <div class="project-overlay"></div>
+        <div class="project-body">
+          <div class="project-tag">Cablage électrique</div>
+          <div class="project-name">Armoire industrielle</div>
+          <p class="project-desc">Conception d'une armoire électrique permettant le pilotage d'un malaxeur.</p>
+        </div>
+        <div class="project-footer">
+          <div class="flex gap-2">
+            <span class="tech-chip">Choix des composants électriques</span>
+            <span class="tech-chip">Marquage équpotentiel</span>
+            <span class="tech-chip">Mise en service</span>
+            <span class="tech-chip">Lecture de schéma électrique</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="project-card fade-up" style="transition-delay:0.2s">
+        <div class="project-img">
+          <img src="Ressources/images/galaxy_game.png" alt="">
+        </div>
+        <div class="project-overlay"></div>
+        <div class="project-body">
+          <div class="project-tag">Développement de jeux avec python</div>
+          <div class="project-name">Jeux Galaxy</div>
+          <p class="project-desc">Programmation d'un jeu dans lequel le joueur ne doit pas sortir d'un chemin changeant.</p>
+        </div>
+        <div class="project-footer">
+          <div class="flex gap-2">
+            <span class="tech-chip">Python</span>
+            <span class="tech-chip">Kivy</span>
+            <span class="tech-chip">Perspective 2D</span>
+            <span class="tech-chip">Algorithmes</span>
+            <span class="tech-chip">py-to-exe</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 6 -->
+      <div class="project-card fade-up" style="transition-delay:0.3s">
+        <div class="project-img">
+          <img src="Ressources/images/portfolio_v3.png" alt="">
+        </div>
+        <div class="project-overlay"></div>
+        <div class="project-body">
+          <div class="project-tag">Développement web</div>
+          <div class="project-name">Portfolio 2026</div>
+          <p class="project-desc">Conception d'une vitrine en ligne grâce à des technologies du web.</p>
+        </div>
+        <div class="project-footer">
+          <div class="flex gap-2">
+            <span class="tech-chip">HTML/CSS</span>
+            <span class="tech-chip">JavaScript</span>
+            <span class="tech-chip">Tailwind CSS</span>
+            <span class="tech-chip">Figma</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ CENTRES D'INTÉRÊT ════════════════ -->
+<section id="interets" class="py-28 px-8">
+  <div class="container mx-auto max-w-6xl">
+    <div class="text-center mb-16 fade-up">
+      <div class="section-label justify-center">Centres d'intérêt</div>
+      <h2 class="section-title">Ce qui me <span style="color:var(--secondary)">passionne</span></h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="interest-card fade-up" style="transition-delay:0.2s">
+        <div class="interest-icon"><i class="fa-solid fa-brain"></i></div>
+        <div class="interest-title">Intelligence Artificielle</div>
+        <p class="interest-desc">Veille constante sur les avancées en IA et machine learning. J'intègre ces technologies dans mes projets.</p>
+      </div>
+      <div class="interest-card fade-up" style="transition-delay:0.3s">
+        <div class="interest-icon"><i class="fa-solid fa-book-open"></i></div>
+        <div class="interest-title">Lecture de romans</div>
+        <p class="interest-desc">Lecteur de romans d'enquêtes, la lecture m'aide à clarifier mes idées et à développer un esprit d'analyse.</p>
+      </div>
+      <div class="interest-card fade-up" style="transition-delay:0.1s">
+        <div class="interest-icon"><i class="fa-solid fa-music"></i></div>
+        <div class="interest-title">Musique</div>
+        <p class="interest-desc"> Apprentissage du piano en autodidacte m'aide à être autonome dans l'apprentissage.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ CONTACT ════════════════ -->
+<section id="contact" class="py-28 px-8">
+  <div class="container mx-auto max-w-6xl">
+    <div class="text-center mb-16 fade-up">
+      <div class="section-label justify-center" style="color:rgba(7,240,27,0.7);">
+        <span style="background:rgba(7,240,27,0.7);"></span>
+        Travaillons ensemble
+      </div>
+      <h2 class="section-title" style="color:var(--neutral);">Prenons <span style="color:var(--secondary)">contact</span></h2>
+    </div>
+      <!-- Info -->
+      <div class="fade-up" style="transition-delay:0.15s">
+        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(239,239,239,0.07); padding:36px; height:100%;">
+          <h3 style="font-family:Arial,Helvetica,sans-serif; font-size:1.2rem; font-weight:700; color:var(--neutral); margin-bottom:8px;">
+            Travaillons ensemble
+          </h3>
+          <p style="color:rgba(239,239,239,0.45); font-size:0.85rem; line-height:1.75; margin-bottom:28px;">
+            Disponible pour une alternance dans les domaines de l'électronique, des systèmes embarqués et de l'automatisme. Réponse garantie sous 24h.
+          </p>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <div class="contact-info-label">Email</div>
+              <div class="contact-info-value"><a href="mailto:christntossui@gmail.com" class="__cf_email__" data-cfemail="8dfbe2f9ffe8a3e8e0ece4e1cde8f5e8e0fde1e8a3eee2e0">christntossui@gmail.com</a></div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div>
+              <div class="contact-info-label">Localisation</div>
+              <div class="contact-info-value">Isère, France</div>
+            </div>
+          </div>
+          <div class="contact-info-item" style="border:none;">
+            <div class="contact-info-icon"><i class="fa-solid fa-circle" style="color:var(--secondary); font-size:0.6rem;"></i></div>
+            <div>
+              <div class="contact-info-label">Disponibilité</div>
+              <div class="contact-info-value" style="color:var(--secondary);">Ouvert aux opportunités</div>
+            </div>
+          </div>
+
+          <!-- Social -->
+          <div class="flex gap-3 mt-8">
+            <a href="https://github.com/christnguema" class="social-btn"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/christ-nguema-b9397b2a4/" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer class="py-10 px-8">
+  <div class="container mx-auto max-w-6xl">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <div class="footer-logo mb-1">Chrsit NGUEMA. N.</div>
+        <div style="font-size:0.78rem; color:rgba(239,239,239,0.3);">Etudiant en électronique et systèmes embarqués</div>
+      </div>
+
+      <div class="flex gap-6 text-xs" style="letter-spacing:0.08em; text-transform:uppercase; font-family:Arial,Helvetica,sans-serif;">
+        <a href="#accueil"  style="color:rgba(239,239,239,0.35); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--secondary)'" onmouseout="this.style.color='rgba(239,239,239,0.35)'">Accueil</a>
+        <a href="#apropos"  style="color:rgba(239,239,239,0.35); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--secondary)'" onmouseout="this.style.color='rgba(239,239,239,0.35)'">À Propos</a>
+        <a href="#projets"  style="color:rgba(239,239,239,0.35); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--secondary)'" onmouseout="this.style.color='rgba(239,239,239,0.35)'">Projets</a>
+        <a href="#contact"  style="color:rgba(239,239,239,0.35); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--secondary)'" onmouseout="this.style.color='rgba(239,239,239,0.35)'">Contact</a>
+      </div>
+
+      <div style="font-size:0.78rem; color:rgba(239,239,239,0.25);">
+        © 2026 Christ NGUEMA — Tous droits réservés
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ── Back to top ── -->
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+  style="position:fixed; bottom:30px; right:30px; width:44px; height:44px;
+         background:var(--secondary); color:var(--primary); border:none; cursor:pointer;
+         font-size:1rem; display:none; align-items:center; justify-content:center;
+         transition:transform 0.25s; z-index:50;"
+  onmouseover="this.style.transform='translateY(-4px)'"
+  onmouseout="this.style.transform='none'">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<!-- ── Toast ── -->
+<div id="toast"
+  style="position:fixed; bottom:30px; left:50%; transform:translateX(-50%) translateY(20px);
+         background:var(--secondary); color:var(--primary);
+         font-family:Arial,Helvetica,sans-serif; font-weight:700; font-size:0.82rem;
+         letter-spacing:0.08em; padding:12px 28px;
+         opacity:0; transition:all 0.4s; z-index:200; pointer-events:none;">
+  ✓ Message envoyé avec succès !
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  /* ── Cursor ── */
+  const cursor = document.getElementById('cursor');
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX - 6 + 'px';
+    cursor.style.top  = e.clientY - 6 + 'px';
+  });
+  document.querySelectorAll('a,button,.project-card,.interest-card').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+  });
+
+  /* ── Navbar scroll ── */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+    document.getElementById('backToTop').style.display = window.scrollY > 400 ? 'flex' : 'none';
+  });
+
+  /* ── Active nav link ── */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        const link = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { threshold: 0.4 });
+  sections.forEach(s => observer.observe(s));
+
+  /* ── Fade-up on scroll ── */
+  const fadeObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
+
+  /* ── Progress bars ── */
+  const barObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.progress-fill').forEach(bar => {
+          bar.style.width = bar.dataset.width + '%';
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('#apropos').forEach(s => barObserver.observe(s));
+
+  /* ── Hamburger ── */
+  const ham = document.getElementById('hamburger');
+  const mob = document.getElementById('mobileMenu');
+  ham.addEventListener('click', () => {
+    ham.classList.toggle('open');
+    mob.classList.toggle('open');
+    document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
+  });
+  function closeMenu() {
+    ham.classList.remove('open');
+    mob.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  /* ── Send message ── */
+  function sendMessage() {
+    const toast = document.getElementById('toast');
+    toast.style.opacity = '1';
+    toast.style.transform = 'translateX(-50%) translateY(0)';
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateX(-50%) translateY(20px)';
+    }, 3000);
+  }
+
+  /* ── Typewriter effect ── */
+  (function() {
+    const phrases = [
+      'Développeur Full-Stack',
+      'Concepteur de systèmes embarqués',
+      "Etudiant ingénieur",
+      'Passionné du Web',
+    ];
+    const el     = document.getElementById('typewriter-output');
+    const cursorEl = document.getElementById('typewriter-cursor');
+    let phraseIdx = 0, charIdx = 0, deleting = false;
+
+    function type() {
+      const current = phrases[phraseIdx];
+      if (!deleting) {
+        el.textContent = current.slice(0, charIdx + 1);
+        charIdx++;
+        if (charIdx === current.length) {
+          setTimeout(() => { deleting = true; scheduleNext(); }, 1800);
+          return;
+        }
+      } else {
+        el.textContent = current.slice(0, charIdx - 1);
+        charIdx--;
+        if (charIdx === 0) {
+          deleting = false;
+          phraseIdx = (phraseIdx + 1) % phrases.length;
+          setTimeout(scheduleNext, 400);
+          return;
+        }
+      }
+      scheduleNext();
+    }
+
+    function scheduleNext() {
+      setTimeout(type, deleting ? 45 : 90);
+    }
+
+    setTimeout(scheduleNext, 1000);
+  })();
+
+  /* ── Hero word animation delay ── */
+  document.querySelectorAll('.hero-word span').forEach((el, i) => {
+    el.style.animationDelay = (0.1 + i * 0.15) + 's';
+  });
+</script>
+
+<style>
+  @keyframes fadeIn { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+</style>
+</body>
+</html>
